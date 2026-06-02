@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lunéa Beauty Studio</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins',sans-serif;
+}
+
+/* BODY */
+
+body{
+  background:#fff7f3;
+  color:#5a4a42;
+}
+
+/* TOPBAR */
+
+.topbar{
+  width:100%;
+  position:fixed;
+  top:0;
+  left:0;
+  padding:18px 70px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  background:rgba(255,255,255,0.88);
+  backdrop-filter:blur(12px);
+  box-shadow:0 4px 15px rgba(0,0,0,0.05);
+  z-index:999;
+}
+
+/* LOGO */
+
+.logo{
+  font-size:28px;
+  font-weight:700;
+  color:#d97757;
+}
+
+/* NAVBAR MENYAMBUNG */
+
+.topbar nav{
+  display:flex;
+  align-items:center;
+  background:#fef2eb;
+  border-radius:16px;
+  padding:8px;
+  overflow:hidden;
+}
+
+/* MENU */
+
+.topbar nav a{
+  text-decoration:none;
+  color:#7c6f68;
+  font-weight:600;
+  padding:12px 24px;
+  transition:0.3s;
+  display:block;
+}
+
+/* GARIS PEMBATAS */
+
+.topbar nav a:not(:last-child){
+  border-right:1px solid #f3d5c9;
+}
+
+/* HOVER */
+
+.topbar nav a:hover{
+  background:#f4b49e;
+  color:white;
+}
+
+/* LOGIN BUTTON */
+
+.login-btn{
+  background:linear-gradient(135deg,#f4b49e,#e89b82);
+  color:white !important;
+  border-radius:10px;
+  margin-left:10px;
+}
+
+.login-btn:hover{
+  transform:translateY(-2px);
+  box-shadow:0 6px 15px rgba(244,180,158,0.4);
+}
+
+/* HERO */
+
+.hero{
+  height:100vh;
+  display:flex;
+  align-items:center;
+  padding:50px;
+  margin-top:90px;
+  background:
+  linear-gradient(to right, rgba(255,247,243,0.95), rgba(255,138,109,0.2)),
+  url('https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9') center/cover;
+}
+
+.hero h1{
+  font-size:60px;
+}
+
+.hero span{
+  color:#ff8a6d;
+}
+
+.hero p{
+  color:#7a6a63;
+  margin-top:10px;
+}
+
+.hero button{
+  margin-top:25px;
+  padding:12px 25px;
+  border:none;
+  border-radius:25px;
+  background:#ff8a6d;
+  color:#fff;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.hero button:hover{
+  background:#f07252;
+}
+
+/* SECTION */
+
+.section{
+  padding:80px 50px;
+  text-align:center;
+}
+
+.section h2{
+  margin-bottom:40px;
+  color:#d97757;
+}
+
+/* SERVICES */
+
+.services{
+  display:flex;
+  gap:20px;
+  flex-wrap:wrap;
+  justify-content:center;
+}
+
+.card{
+  background:#ffffff;
+  border-radius:18px;
+  overflow:hidden;
+  width:250px;
+  transition:.3s;
+  box-shadow:0 5px 15px rgba(0,0,0,0.05);
+}
+
+.card img{
+  width:100%;
+  height:170px;
+  object-fit:cover;
+}
+
+.card:hover{
+  transform:translateY(-10px);
+}
+
+.card h3{
+  margin:15px 10px 8px;
+  color:#ff8a6d;
+}
+
+.card p{
+  padding:0 15px 20px;
+  color:#777;
+}
+
+/* PROMO */
+
+.promo{
+  margin:50px;
+  padding:50px;
+  border-radius:20px;
+  background:linear-gradient(45deg,#ff8a6d,#ffc3a0);
+  color:#fff;
+  text-align:center;
+}
+
+.promo button{
+  margin-top:20px;
+  padding:12px 24px;
+  border:none;
+  border-radius:25px;
+  background:white;
+  color:#ff8a6d;
+  font-weight:600;
+  cursor:pointer;
+}
+
+/* STATS */
+
+.stats{
+  display:flex;
+  justify-content:center;
+  gap:50px;
+  margin-top:30px;
+  flex-wrap:wrap;
+}
+
+.stats div{
+  font-size:20px;
+  color:#5a4a42;
+}
+
+/* ABOUT */
+
+.about{
+  display:flex;
+  gap:30px;
+  align-items:center;
+  flex-wrap:wrap;
+  justify-content:center;
+}
+
+.about img{
+  width:400px;
+  border-radius:20px;
+}
+
+.about-text{
+  max-width:400px;
+  text-align:left;
+}
+
+.about-text h2{
+  color:#ff8a6d;
+  margin-bottom:15px;
+}
+
+.about button{
+  margin-top:20px;
+  padding:10px 20px;
+  border:none;
+  border-radius:20px;
+  background:#ff8a6d;
+  color:#fff;
+  cursor:pointer;
+}
+
+/* FOOTER */
+
+footer{
+  background:#fff0ea;
+  padding:40px;
+  margin-top:50px;
+  color:#6b5b55;
+}
+
+.footer-grid{
+  display:flex;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  gap:30px;
+}
+
+footer input{
+  padding:10px;
+  border:none;
+  border-radius:20px;
+  background:#fff;
+}
+
+footer button{
+  padding:10px 15px;
+  border:none;
+  border-radius:20px;
+  background:#ff8a6d;
+  color:#fff;
+  margin-left:10px;
+  cursor:pointer;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:900px){
+
+  .topbar{
+    padding:15px 25px;
+    flex-direction:column;
+    gap:15px;
+  }
+
+  .topbar nav{
+    flex-wrap:wrap;
+    justify-content:center;
+  }
+
+  .hero{
+    text-align:center;
+    justify-content:center;
+  }
+
+  .hero h1{
+    font-size:40px;
+  }
+
+  .about{
+    text-align:center;
+  }
+
+  .about-text{
+    text-align:center;
+  }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- TOPBAR -->
+
+<div class="topbar">
+
+  <div class="logo">
+    Lunéa Beauty Studio
+  </div>
+
+  <nav>
+    <a href="beranda.html">Beranda</a>
+    <a href="katalog.html">Katalog</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+    <a href="login.html">Login</a>
+  </nav>
+
+</div>
+
+<!-- HERO -->
+
+<section class="hero">
+
+<div>
+<p>Tampil cantik setiap hari</p>
+
+<h1>
+Beauty is <span>Confidence</span>
+</h1>
+
+<p>
+Salon terbaik untuk rambut & kecantikan
+</p>
+
+<button onclick="alert('Booking berhasil!')">
+Booking Sekarang
+</button>
+
+</div>
+
+</section>
+
+<!-- SERVICES -->
+
+<section class="section">
+
+<h2>Layanan Kami</h2>
+
+<div class="services">
+
+<div class="card">
+<img src="cutt.jpg">
+<h3>Haircut</h3>
+<p>Potong rambut stylish dan modern.</p>
+</div>
+
+<div class="card">
+<img src="color.jpg">
+<h3>Coloring</h3>
+<p>Warna rambut trend terbaru.</p>
+</div>
+
+<div class="card">
+<img src="treat.jpg">
+<h3>Treatment</h3>
+<p>Perawatan rambut sehat & berkilau.</p>
+</div>
+
+<div class="card">
+<img src="cream.jpg">
+<h3>Creambath</h3>
+<p>Relaksasi rambut agar lebih fresh.</p>
+</div>
+
+</div>
+
+</section>
+
+<!-- PROMO -->
+
+<div class="promo">
+
+<h2>DISKON 20%</h2>
+
+<p>
+Untuk semua layanan bulan ini
+</p>
+
+<button>
+Booking Sekarang
+</button>
+
+</div>
+
+<!-- STATS -->
+
+<section class="section">
+
+<div class="stats">
+
+<div>👥 1250+ Pelanggan</div>
+<div>🏆 10+ Tahun</div>
+<div>❤️ 25+ Layanan</div>
+<div>⭐ 4.9 Rating</div>
+
+</div>
+
+</section>
+
+<!-- ABOUT -->
+
+<section class="section about">
+
+<img src="https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f">
+
+<div class="about-text">
+
+<h2>Tentang Kami</h2>
+
+<p>
+Salon Lunéa memberikan layanan terbaik dengan tenaga profesional dan produk berkualitas premium.
+</p>
+
+<button>
+Selengkapnya
+</button>
+
+</div>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+
+<div class="footer-grid">
+
+<div>
+<h3>Lunéa</h3>
+<p>Salon terbaik untuk kecantikanmu</p>
+</div>
+
+<div>
+<h3>Menu</h3>
+<p>Beranda</p>
+<p>Layanan</p>
+<p>Kontak</p>
+</div>
+
+<div>
+<h3>Kontak</h3>
+<p>📍 Kampungsengon</p>
+<p>📞 08123456789</p>
+</div>
+
+<div>
+<h3>Newsletter</h3>
+
+<input type="email" placeholder="Email">
+
+<button>
+Kirim
+</button>
+
+</div>
+
+</div>
+
+<p style="text-align:center;margin-top:20px">
+© 2026 Lunéa Beauty Studio
+</p>
+
+</footer>
+
+</body>
+</html>

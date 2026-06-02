@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lunéa Beauty Studio</title>
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:'Poppins', sans-serif;
+    }
+
+    body{
+      min-height:100vh;
+      background:linear-gradient(135deg,#fff7f2,#fff1eb,#fef6f0);
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      padding:40px;
+      padding-top:120px;
+    }
+
+    /* TOPBAR */
+    .topbar{
+      width:100%;
+      position:fixed;
+      top:0;
+      left:0;
+      padding:18px 70px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      background:rgba(255,255,255,0.88);
+      backdrop-filter:blur(12px);
+      box-shadow:0 4px 15px rgba(0,0,0,0.05);
+      z-index:999;
+    }
+
+    .logo{
+      font-size:28px;
+      font-weight:700;
+      color:#d97757;
+    }
+
+    /* NAVBAR */
+    .navbar{
+      display:flex;
+      align-items:center;
+      background:#fef2eb;
+      border-radius:16px;
+      padding:8px;
+      gap:0;
+      overflow:hidden;
+    }
+
+    .navbar a{
+      text-decoration:none;
+      color:#7c6f68;
+      font-weight:600;
+      padding:12px 24px;
+      transition:0.3s;
+    }
+
+    .navbar a:not(:last-child){
+      border-right:1px solid #f3d5c9;
+    }
+
+    .navbar a:hover{
+      background:#f4b49e;
+      color:white;
+    }
+
+    .login-btn{
+      background:linear-gradient(135deg,#f4b49e,#e89b82);
+      color:white !important;
+      border-radius:10px;
+      margin-left:10px;
+    }
+
+    /* CONTAINER */
+    .container{
+      width:1000px;
+      background:white;
+      border-radius:30px;
+      overflow:hidden;
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      box-shadow:0 15px 40px rgba(0,0,0,0.08);
+    }
+
+    /* LEFT */
+    .left{
+      background:linear-gradient(135deg,#f6c7b6,#f4b49e,#f8ddd0);
+      padding:60px;
+      color:white;
+      position:relative;
+    }
+
+    .left::before{
+      content:"";
+      position:absolute;
+      width:250px;
+      height:250px;
+      background:rgba(255,255,255,0.18);
+      border-radius:50%;
+      top:-80px;
+      right:-80px;
+    }
+
+    .brand{
+      position:relative;
+      z-index:2;
+    }
+
+    .brand h1{
+      font-size:45px;
+      margin-bottom:15px;
+      font-weight:700;
+    }
+
+    .brand p{
+      line-height:1.8;
+      color:#fffaf7;
+      font-size:15px;
+    }
+
+    /* BENEFIT */
+    .benefit{
+      margin-top:45px;
+      position:relative;
+      z-index:2;
+    }
+
+    .benefit-box{
+      background:rgba(255,255,255,0.2);
+      backdrop-filter:blur(10px);
+      border-radius:18px;
+      padding:18px;
+      margin-bottom:18px;
+      transition:0.3s;
+    }
+
+    .benefit-box:hover{
+      transform:translateX(5px);
+    }
+
+    .benefit-box h3{
+      font-size:16px;
+      margin-bottom:5px;
+    }
+
+    .benefit-box p{
+      font-size:13px;
+      color:#fff8f5;
+    }
+
+    /* RIGHT */
+    .right{
+      padding:60px 50px;
+      background:#ffffff;
+      overflow:hidden;
+      position:relative;
+    }
+
+    .top-text{
+      text-align:center;
+      margin-bottom:35px;
+    }
+
+    .top-text h2{
+      font-size:38px;
+      color:#d97757;
+      margin-bottom:8px;
+    }
+
+    .top-text p{
+      color:#9ca3af;
+      font-size:14px;
+    }
+
+  
+   /* TABS */
+.tabs{
+  display:flex;
+  background:#fef2eb;
+  border-radius:14px;
+  overflow:hidden;
+  margin-bottom:30px;
+}
+
+.tab-link{
+  flex:1;
+  padding:14px;
+  text-align:center;
+  text-decoration:none;
+  font-weight:600;
+  color:#8b6b61;
+  transition:0.3s;
+}
+
+.tab-link:hover{
+  background:#f8d3c3;
+}
+
+.tab-link.active{
+  background:#f4b49e;
+  color:white;
+}
+
+    /* FORM */
+    .form-container{
+      width:200%;
+      display:flex;
+      transition:0.5s;
+    }
+
+    .form-box{
+      width:50%;
+      padding-right:10px;
+    }
+
+    .form-container.active{
+      transform:translateX(-50%);
+    }
+
+    .input-box{
+      margin-bottom:22px;
+    }
+
+    .input-box label{
+      display:block;
+      margin-bottom:8px;
+      font-size:14px;
+      color:#7c6f68;
+      font-weight:600;
+    }
+
+    .input-box input{
+      width:100%;
+      padding:15px;
+      border:2px solid #f5ddd3;
+      border-radius:14px;
+      outline:none;
+      background:#fffaf7;
+      transition:0.3s;
+    }
+
+    .input-box input:focus{
+      border-color:#f4b49e;
+      background:white;
+    }
+
+    /* OPTIONS */
+    .options{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      margin-bottom:28px;
+      font-size:14px;
+      color:#7c6f68;
+    }
+
+    .options a{
+      text-decoration:none;
+      color:#d97757;
+      font-weight:600;
+    }
+
+    /* BUTTON */
+    .btn{
+      width:100%;
+      padding:15px;
+      border:none;
+      border-radius:14px;
+      background:linear-gradient(135deg,#f4b49e,#e89b82);
+      color:white;
+      font-size:16px;
+      font-weight:600;
+      cursor:pointer;
+      transition:0.3s;
+    }
+
+    .btn:hover{
+      transform:translateY(-2px);
+      box-shadow:0 8px 20px rgba(244,180,158,0.4);
+    }
+
+    .bottom{
+      text-align:center;
+      margin-top:25px;
+      font-size:14px;
+      color:#9ca3af;
+    }
+
+    /* RESPONSIVE */
+    @media(max-width:900px){
+
+      .container{
+        grid-template-columns:1fr;
+      }
+
+      .left{
+        display:none;
+      }
+
+      .right{
+        padding:40px 30px;
+      }
+
+      .topbar{
+        padding:15px 25px;
+        flex-direction:column;
+        gap:15px;
+      }
+
+      .navbar{
+        flex-wrap:wrap;
+        justify-content:center;
+      }
+
+    }
+
+    .bottom{
+  text-align:center;
+  margin-top:25px;
+  font-size:14px;
+  color:#7c6f68;
+}
+
+.bottom a{
+  color:#d97757;
+  font-weight:600;
+  text-decoration:none;
+}
+
+.bottom a:hover{
+  color:#e89b82;
+  text-decoration:underline;
+}
+
+  </style>
+</head>
+
+<body>
+
+  <!-- TOPBAR -->
+  <div class="topbar">
+
+    <div class="logo">
+      Lunéa Beauty Studio
+    </div>
+
+    <div class="navbar">
+      <a href="beranda.html">Beranda</a>
+      <a href="katalog.html">Katalog</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="login.html">Login</a>
+    </div>
+
+  </div>
+
+  <div class="container">
+
+    <!-- LEFT -->
+    <div class="left">
+
+      <div class="brand">
+        <h1>Lunéa Studio</h1>
+
+        <p>
+          Tampil lebih cantik dan percaya diri dengan 
+          pelayanan salon modern bernuansa elegan dan nyaman.
+        </p>
+      </div>
+
+      <div class="benefit">
+
+        <div class="benefit-box">
+          <h3>✨ Premium Treatment</h3>
+          <p>Perawatan berkualitas dengan hasil maksimal.</p>
+        </div>
+
+        <div class="benefit-box">
+          <h3>🎁 Member Rewards</h3>
+          <p>Dapatkan promo dan diskon eksklusif setiap bulan.</p>
+        </div>
+
+        <div class="benefit-box">
+          <h3>🌸 Professional Stylist</h3>
+          <p>Ditangani langsung oleh stylist berpengalaman.</p>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- RIGHT -->
+    <div class="right">
+
+      <div class="top-text">
+        <h2>Welcome Back</h2>
+        <p>Login atau Register untuk booking treatment favoritmu</p>
+      </div>
+
+      <!-- TABS -->
+      <div class="tabs">
+
+       <a href="login.html" class="tab-link active">Login</a>
+       <a href="regist.html" class="tab-link">Register</a>
+
+      </div>
+
+      <!-- FORM CONTAINER -->
+      <div class="form-container" id="formContainer">
+
+        <!-- LOGIN -->
+        <div class="form-box">
+
+          <form>
+
+            <div class="input-box">
+              <label>Email</label>
+              <input type="email" placeholder="Masukkan email">
+            </div>
+
+            <div class="input-box">
+              <label>Password</label>
+              <input type="password" placeholder="Masukkan password">
+            </div>
+
+            <div class="options">
+
+              <label>
+                <input type="checkbox">
+                Ingat saya
+              </label>
+
+              <a href="#">Lupa Password?</a>
+
+            </div>
+
+            <button type="submit" class="btn">
+              Login Sekarang
+            </button>
+
+          </form>
+
+          <div class="bottom">
+        Belum punya akun?
+        <a href="regist.html">Daftar Disini</a>
+      </div>
+
+        </div>
+
+    </div>
+
+  </div>
+</body>
+</html>

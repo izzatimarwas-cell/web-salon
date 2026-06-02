@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Lunéa Studio</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins', sans-serif;
+}
+
+body{
+    background:#fff8f7;
+    color:#5b4b45;
+}
+
+/* TOPBAR */
+
+.topbar{
+    width:100%;
+    position:fixed;
+    top:0;
+    left:0;
+    padding:18px 70px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:rgba(255,255,255,0.88);
+    backdrop-filter:blur(12px);
+    box-shadow:0 4px 15px rgba(0,0,0,0.05);
+    z-index:999;
+}
+
+.logo{
+    font-size:28px;
+    font-weight:700;
+    color:#d97757;
+}
+
+/* NAVBAR MENYAMBUNG */
+
+.topbar ul{
+    display:flex;
+    align-items:center;
+    background:#fef2eb;
+    border-radius:16px;
+    padding:8px;
+    gap:0;
+    overflow:hidden;
+    list-style:none;
+}
+
+/* MENU */
+
+.topbar ul li a{
+    text-decoration:none;
+    color:#7c6f68;
+    font-weight:600;
+    padding:12px 24px;
+    transition:0.3s;
+    display:block;
+}
+
+/* GARIS PEMBATAS */
+
+.topbar ul li:not(:last-child){
+    border-right:1px solid #f3d5c9;
+}
+
+/* HOVER */
+
+.topbar ul li a:hover{
+    background:#f4b49e;
+    color:white;
+}
+
+/* LOGIN BUTTON */
+
+.login-btn{
+    background:linear-gradient(135deg,#f4b49e,#e89b82);
+    color:white !important;
+    border-radius:10px;
+    margin-left:10px;
+}
+
+.login-btn:hover{
+    transform:translateY(-2px);
+    box-shadow:0 6px 15px rgba(244,180,158,0.4);
+}
+
+/* HERO */
+
+.hero{
+    margin-top:95px;
+    background:linear-gradient(to right,#ffe8ee,#fff7f9);
+    padding:80px 8%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+}
+
+.hero-text{
+    max-width:550px;
+}
+
+.hero h1{
+    font-size:50px;
+    color:#b86f7c;
+    margin-bottom:15px;
+}
+
+.hero p{
+    color:#8c7077;
+    line-height:1.8;
+    margin-bottom:25px;
+}
+
+.hero button{
+    padding:14px 28px;
+    border:none;
+    border-radius:14px;
+    background:#d89aa5;
+    color:white;
+    font-size:15px;
+    font-weight:600;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.hero button:hover{
+    background:#c97f8c;
+}
+
+.hero-image{
+    width:280px;
+    height:280px;
+    background:#ffdbe3;
+    border-radius:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:90px;
+    margin-top:20px;
+}
+
+/* CONTACT */
+
+.container{
+    width:85%;
+    margin:60px auto;
+    display:grid;
+    grid-template-columns:2fr 1fr;
+    gap:30px;
+}
+
+.form-box,
+.info-box{
+    background:white;
+    padding:35px;
+    border-radius:25px;
+    box-shadow:0 5px 20px rgba(0,0,0,0.08);
+}
+
+.form-box h2,
+.info-box h2{
+    margin-bottom:25px;
+    color:#b86f7c;
+}
+
+.input-group{
+    margin-bottom:20px;
+}
+
+.input-group label{
+    display:block;
+    margin-bottom:8px;
+    font-weight:500;
+    color:#6d5a52;
+}
+
+.input-group input,
+.input-group select,
+.input-group textarea{
+    width:100%;
+    padding:14px;
+    border:2px solid #f5d7de;
+    border-radius:14px;
+    background:#fffafb;
+    outline:none;
+    transition:0.3s;
+}
+
+.input-group input:focus,
+.input-group select:focus,
+.input-group textarea:focus{
+    border-color:#d89aa5;
+}
+
+textarea{
+    resize:none;
+    height:130px;
+}
+
+/* BUTTON */
+
+.btn{
+    width:100%;
+    padding:15px;
+    background:#d89aa5;
+    border:none;
+    border-radius:14px;
+    color:white;
+    font-size:16px;
+    font-weight:600;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.btn:hover{
+    background:#c97f8c;
+}
+
+/* INFO CARD */
+
+.info-card{
+    background:#fff5f7;
+    padding:18px;
+    border-left:5px solid #d89aa5;
+    border-radius:16px;
+    margin-bottom:18px;
+    transition:0.3s;
+}
+
+.info-card:hover{
+    transform:translateY(-3px);
+}
+
+.info-card h4{
+    margin-bottom:8px;
+    color:#b86f7c;
+}
+
+.info-card p{
+    font-size:14px;
+    line-height:1.7;
+    color:#6d5a52;
+}
+
+/* MAP */
+
+.map{
+    width:85%;
+    margin:auto;
+    background:white;
+    border-radius:25px;
+    padding:20px;
+    box-shadow:0 5px 20px rgba(0,0,0,0.08);
+}
+
+.map iframe{
+    width:100%;
+    height:300px;
+    border:none;
+    border-radius:18px;
+}
+
+/* FOOTER */
+
+footer{
+    margin-top:60px;
+    background:#ffdbe3;
+    text-align:center;
+    padding:25px;
+    color:#7a5b63;
+    font-weight:500;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:900px){
+
+    .topbar{
+        padding:15px 25px;
+        flex-direction:column;
+        gap:15px;
+    }
+
+    .topbar ul{
+        flex-wrap:wrap;
+        justify-content:center;
+    }
+
+    .hero{
+        text-align:center;
+        justify-content:center;
+    }
+
+    .hero h1{
+        font-size:38px;
+    }
+
+    .container{
+        grid-template-columns:1fr;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- TOPBAR -->
+
+<div class="topbar">
+
+<div class="logo">Lunéa Beauty Studio</div>
+
+<ul>
+      <li><a href="beranda.html">Beranda</a></li>
+      <li><a href="katalog.html">Katalog</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="login.html">Login</a></li>
+    </ul>
+
+</div>
+
+<!-- HERO -->
+
+<section class="hero">
+
+<div class="hero-text">
+<h1>Selamat Datang di Lunéa Beauty Studio</h1>
+
+<p>
+Salon modern dengan pelayanan premium untuk
+hair treatment, makeup artist, nail art,
+dan berbagai perawatan kecantikan eksklusif.
+</p>
+
+<button>Reservasi Sekarang</button>
+</div>
+
+<div class="hero-image">
+💇🏻‍♀️
+</div>
+
+</section>
+
+<!-- CONTACT -->
+
+<section class="container">
+
+<!-- FORM -->
+
+<div class="form-box">
+
+<h2>Reservasi & Konsultasi</h2>
+
+<form>
+
+<div class="input-group">
+<label>Nama Lengkap</label>
+<input type="text" placeholder="Masukkan nama lengkap">
+</div>
+
+<div class="input-group">
+<label>Email</label>
+<input type="email" placeholder="Masukkan email">
+</div>
+
+<div class="input-group">
+<label>No. Telepon</label>
+<input type="text" placeholder="Masukkan nomor telepon">
+</div>
+
+<div class="input-group">
+<label>Pilih Treatment</label>
+
+<select>
+<option>-- Pilih Treatment --</option>
+<option>Hair Spa</option>
+<option>Hair Coloring</option>
+<option>Creambath</option>
+<option>Makeup Artist</option>
+<option>Nail Art</option>
+</select>
+
+</div>
+
+<div class="input-group">
+<label>Pesan Tambahan</label>
+
+<textarea placeholder="Tulis kebutuhan atau pertanyaan Anda..."></textarea>
+
+</div>
+
+<button class="btn">Kirim Reservasi</button>
+
+</form>
+
+</div>
+
+<!-- INFO -->
+
+<div class="info-box">
+
+<h2>Informasi Studio</h2>
+
+<div class="info-card">
+<h4>📍 Alamat</h4>
+<p>Jl. Sudirman No. 88, Pekanbaru, Riau</p>
+</div>
+
+<div class="info-card">
+<h4>📞 Telepon</h4>
+<p>+62 811-2345-6709</p>
+</div>
+
+<div class="info-card">
+<h4>📧 Email</h4>
+<p>hello@luneastudio.id</p>
+</div>
+
+<div class="info-card">
+<h4>🕒 Jam Operasional</h4>
+<p>Senin - Minggu : 09.00 - 21.00</p>
+</div>
+
+</div>
+
+</section>
+
+<!-- MAP -->
+
+<section class="map">
+
+<iframe 
+src="https://maps.google.com/maps?q=pekanbaru&t=&z=13&ie=UTF8&iwloc=&output=embed">
+</iframe>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+© 2026 Lunéa Beauty Studio • Beauty & Premium Salon
+</footer>
+
+</body>
+</html>
